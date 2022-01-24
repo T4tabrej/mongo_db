@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDb tuturial</title>
+</head>
+<body>
+    
+<!-- INSTALL COMPASS IN MAC IS A LENGHTY PROCEES JUST DOWNLOAD IT FROM COMUNITY SERVER A FOLDER WILL BE DOWNLOAD THE CUT ALL THE FILES INSIDE OF IT AND 
+GOT THE USER/TABREJ AND CREATE A FOLDER AS WANT I CREATED IT DEVELOPMENT/MONGODB AND HERE PASTE THE FILES INSIDE THE MONGO DB CRATE ANOTHER FOLDER
+data AND INSIDE IT CREATE db the return back to the users/tabrej and find .zprofile if there is no file just create it and 
+write 
+export PATH="$PATH:/Users/tabrej/development/mongodb/bin"
+this is the path file for mongodb/bin where paste all the data we can say that here we set the pathe variables of another languages also -->
+
+
+
+
+
+
+
+   <!--
+for create a new database just write use db_name 
+ for create new table(collection in mongodb) and insert  a single data just write db.student.insertOne({name:"tabrej",roll:234,age:28}) db represent the current database that u are using
+
+ to show a collectiion of data base show collections
+ 
+ to show the data of any collection in a database db.student.find() or db.student.find().pretty()
+db is an alias of current database
+******************insert query********************************
+we can insert one data as well as many data at one time insertOne({}) is used for onet data and insertMany([{},{},{}.....])
+
+******************find query********************************
+we can find a specific data using find(query,projection)
+
+db.student.find() shows all data of collection
+db.student.find({name:"tabrej"}).pretty() shows all the data of name tabrej only
+if we want to show only name tabrej the we have to print only name and false the other value
+db.student.find({name:"tabrej"},{name:1}).pretty()  here in projection name is true but it olso shows the id field by defauult 
+if we doesnt want to show the id field then we have to write db.student.find({name:"tabrej"},{_id:0,name:1}).pretty()
+if there is more than one field contains same name or  roll or any data and we only want to show the first data the we write db.student.find({name:"tabrej"},{name:1}).pretty().limit(1) this wil filter the data and shows fist data only ther is one more method to do this
+db.student.findOne({name:"tabrej",{name:1}})
+if we ant to skip the data and shows some specific no of data 
+db.student.find({name:"tabrej"},{name:1}).pretty().limit(1).skip(1) this will skip the first data 
+
+
+******************update query********************************
+UpdateOne()=>db.collectionname.updateOne(filter,update)
+UpdateMany()=>db.collectionname.update(filter,update)
+db.student.updateOne( {name:"tabrej"}, {$set: {name:"sonu"} } )   it will first filter and find by name field and then update the name field to sonu
+db.student.updatemany( {name:"tabrej"}, {$set: {name:"sonu"} } ) if there is more than one field with same name it will update all the va;ues
+
+
+*****************Delete query********************************
+
+deleteMany()=>b.collectionname.deleteMany(criteria)
+db.student.deleteMany({roll:203}) it will only delete the data of roll 203
+
+db.student.deleteMany()  it will empty the collection
+
+
+for GUI OF MONGODB YOU HAVE TO INSTALL COMPASS 
+second day
+for cooncetion to the mongodb we use mongodb
+first we have to install it by npm i mongoose then we have to require it and made the connection
+----------------Schema--------------------
+schema defines the structure of the document
+like data type ,dafault values and validators etc
+   -->
+</body>
+</html>
